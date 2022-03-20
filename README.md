@@ -1,7 +1,7 @@
 # IP Address Tracker 💻 #
 
 
-***IP Address Tracker*** is a useful app to **search** for any **IP addresses** or **domains (pending)** and see their **key information** and **location** on the map 🔍 
+***IP Address Tracker*** is a useful app to **search** for any **IP address** and see it's **key information** and **location** on the map 🔍 
 
 ## APIs Used ✨ ##
 
