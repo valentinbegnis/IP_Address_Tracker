@@ -1,9 +1,9 @@
-const API_KEY = 'at_cck08Uor06K7AzGwuE2YUB8IxOgn0';
+const API_KEY = 'd6deccfc-afbf-49e0-94ab-cb9636a5559b';
 
 const clientIp = document.querySelector('.ip-address');
 const clientLocation = document.querySelector('.location');
 const clientTimezone = document.querySelector('.timezone');
-const clientIsp = document.querySelector('.isp');
+const clientCurrency = document.querySelector('.isp');
 
 const searchBar = document.querySelector('.search-bar');
 const inputIp = document.getElementById('ip-input');
@@ -34,24 +34,24 @@ const fetchData = async (defaultIp) => {
     let API_URL;
 
     if (defaultIp === undefined) {
-        API_URL = `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}`;
+        API_URL = `https://api.ipfind.com/me?auth=${API_KEY}`;
     } else {
-        API_URL = `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${defaultIp}`;
+        API_URL = `https://api.ipfind.com?ip=${defaultIp}&auth=${API_KEY}`;
     }
     
     try {
         const request = await fetch(API_URL);
         const data = await request.json();
+        console.log(data)
 
-        const {ip, isp} = data;
-        const {city, country, timezone, lat, lng} = data.location;
+        const {ip_address, city, country_code, timezone, currency, latitude, longitude} = data;
 
-        clientIp.textContent = ip;
-        clientLocation.textContent = `${city}, ${country}`;
-        clientTimezone.textContent = `UTC ${timezone}`;
-        clientIsp.textContent = isp;
+        clientIp.textContent = ip_address;
+        clientLocation.textContent = `${city}, ${country_code}`;
+        clientTimezone.textContent = timezone;
+        clientCurrency.textContent = currency;
        
-        updateMap([lat, lng]);
+        updateMap([latitude, longitude]);
     } catch(err) {
         console.error(err);
     }
@@ -86,7 +86,7 @@ button.addEventListener('click', e => {
         clientIp.textContent = 'Invalid IP Address';
         clientLocation.textContent = '-';
         clientTimezone.textContent = '-';
-        clientIsp.textContent = '-';
+        clientCurrency.textContent = '-';
         console.error('Invalid IP Address');
     }
 });
