@@ -86,9 +86,9 @@ main .info {
 }
 
 .info div h4 {
-    margin-bottom: 5px;
     text-align: center;
     letter-spacing: .1rem;
+    text-transform: uppercase;
     color: var(--secondary-text-color);
 }
 
@@ -110,38 +110,34 @@ main #display_map {
     }
 }
 
-@media (min-width: 800px) {
-    main .info{
-        width: 600px;
+@media (min-width: 980px) {
+    main .form-container {
+        height: 20vh;
+    }
+    main .info {
+        width: 90%;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-around;
         gap: 0;
-        top: 175px;
+        top: 130px;
+    }
+    main #display_map { 
+        height: 80vh; 
+    }
+    .info div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
     .info div h4,
     .info div p {
-        text-align: start;
+        margin-bottom: 0;
+        text-align: center;
     }
     .info div p {
         font-size: 1.7rem;
     }
     .info div {
         padding: 0 20px;
-    }
-    .info div:first-child,
-    .info div:nth-child(2),
-    .info div:nth-child(3) {
-        border-right: 1px solid #dfdfdf;
-    }
-}
-
-@media (min-width: 1024px) {
-    main .info{
-        width: 750px;
-        top: 170px;
-    }
-    .info div h4,
-    .info div p {
-        text-align: center;
     }
 }
