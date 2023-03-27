@@ -7,7 +7,7 @@
 
 _To get the IP Address locations:_
 
-🌎 [IP Find](https://ipfind.com/)
+🌎 [ipstack](https://ipstack.com/)
 
 _To generate the map:_
 
